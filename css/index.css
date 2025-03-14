@@ -3396,10 +3396,11 @@
   }
   .moderation {
 	  display: inline-block;
-	  width: 35px;
-	  flex-shrink: 0;
 	  vertical-align: middle;
 	  text-align: center;
+  }
+  .msgindexrow.moderation {
+    padding: 0;
   }
   /* Quick moderation selects and submit */
   #quick_actions {

@@ -148,7 +148,6 @@ function template_main()
 
 		foreach ($context['topics'] as $topic)
 		{
-			/* i havent found a way to check attachment from here so the second icon is just xx.gif forever and icon returns xx.gif even with an attachment*/
 			echo '
 				<tr class="msgindexrow ', $topic['css_class'], '">
 					<td class="msgindexrow board_icon">
@@ -158,11 +157,6 @@ function template_main()
 						<img src="', $topic['icon_url'], '" alt=""> 
 					</td>
 			';
-			/* TODO FIGURE OUT WHERE THIS GOES
-
-					<td class="info', !empty($context['can_quick_mod']) ? '' : ' info_block', '">
-						<td ', (!empty($topic['quick_mod']['modify']) ? 'id="topic_' . $topic['first_post']['id'] . '"  ondblclick="oQuickModifyTopic.modify_topic(\'' . $topic['id'] . '\', \'' . $topic['first_post']['id'] . '\');"' : ''), '>
-			*/
 
 			echo '
 				<td class="message_index_title">
@@ -219,7 +213,7 @@ function template_main()
 			if (!empty($context['can_quick_mod']))
 			{
 				echo '
-					<div class="moderation">';
+					<td class="msgindexrow moderation">';
 
 				if ($options['display_quick_mod'] == 1)
 					echo '
@@ -243,7 +237,7 @@ function template_main()
 						echo '<a href="', $scripturl, '?action=movetopic;current_board=', $context['current_board'], ';board=', $context['current_board'], '.', $context['start'], ';topic=', $topic['id'], '.0"><span class="main_icons move" title="', $txt['move_topic'], '"></span></a>';
 				}
 				echo '
-					</div><!-- .moderation -->';
+					</td><!-- .moderation -->';
 			}
 			echo '
 				</tr><!-- $topic[css_class] -->';
