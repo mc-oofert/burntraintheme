@@ -1,0 +1,261 @@
+:root {
+  --admin_legend_bg: rgb(23,32,41);
+  --admin_legend_border: 1px solid rgb(88,118,153);
+  --admin_legend_text_color: rgb(240,206,142);
+  --amt_color: rgb(0,0,0);
+  --amt_color_hover: rgb(40,40,40);
+  --amt_bg: rgb(212,129,102);
+  --amt_bg_active: rgb(212,129,102);
+  --bar_bg: rgb(212,129,102);
+  --birthday_text: rgb(113, 7, 152);
+  --black: rgb(0,0,0);
+  --board_icon_bg: rgb(232,143,113);
+  --board_stats_border_color: rgb(232,143,113);
+  --body_bg: rgb(11,11,11);
+  --body_text: rgb(250,250,250);
+  --button_bg: rgb(124, 76, 60);
+  --button_bg_2: rgb(84,70,66);
+  --button_bg_gradient: linear-gradient(0deg, rgb(124, 76, 60) 0%, rgb(84,70,66)100%);
+  --button_border_color: rgb(0,0,0);
+  --button_bg_hover: rgb(255,255,255);
+  --button_bg_active: rgb(255,255,255);
+  --button_link: rgb(255,255,255);
+  --calendar_disabled_bg: rgb(55,38,34);
+  --calendar_main_bg: rgb(211,170,237);
+  --calendar_holiday_bg: rgb(212,129,102);
+  --calendar_holiday_bg_hover: rgb(202, 119, 92);
+  --calendar_text: rgb(255,255,255);
+  --cat_bg_img: url(../images/custom/cat_bar_left.png) no-repeat, url(../images/custom/cat_bar_right.png) top right no-repeat, url(../images/custom/cat_bar_mid.png) repeat-x;
+  --cat_bg_color: rgb(67, 57, 55);
+  --cat_bar_border_color: rgb(232,143,113);
+  --cat_bar_box_shadow: 0px 0px 0px 1px rgb(2,4,1);
+  --cat_bar_link: rgb(255,255,255);
+  --code_bg: rgb(31,31,31);
+  --code_border_color: rgb(28,23,32);
+  --code_text_color: rgb(255,255,255);
+  --fieldset_legend_color: rgb(255,255,255);
+  --footer_bg: rgb(55,58,54);
+  --footer_box_shadow: inset 0px 2px 3px rgb(0, 0, 0, 0.4);
+  --footer_border_color: rgb(232,143,113);
+  --footer_link: rgb(238,238,238);
+  --header_bg: rgb(212,129,102);
+  --holiday_text: rgb(2,93,255);
+  --ibst_color: rgb(0,0,0);
+  --infobox_link: rgb(212,129,102);
+  --infobox_text: rgb(230, 226, 221);
+  --input_bg: rgb(212,129,102);
+  --input_bg_hover: rgb(222,139,112); 
+  --input_border: none;
+  --input_border_hover: rgb(36,38,36);
+  --input_box_shadow: 0px 0px 3px 0px rgb(12, 29, 2) inset;
+  --link: rgb(230, 226, 221);
+  --link_hover: rgb(232,143,113);
+  --main_bg: rgb(124,76,60);
+  --main_bg2: rgb(84,70,66);
+  --main_border_cool: rgb(181,115,94) rgb(14,8,6) rgb(14,8,6) rgb(181,115,94);
+  --main_border_cool_dark: rgb(14,8,6);
+  --main_border_cool_light: rgb(181,115,94);
+  --menu_bg: rgb(84,70,66);
+  --menu_bg2: rgb(66,55,52);
+  --menu_box_shadow: 0px 0px 0px 1px rgb(2,4,1);
+  --menu_border_color: rgb(232,143,113);
+  --menu_link: rgb(242,242,242);
+  --menu_link_hover: rgb(255,255,255);
+  --moderation_link: rgb(212,129,102);
+  --new_posts_bg: rgb(232,143,113);
+  --new_posts_text: rgb(255,255,255);
+  --news_slide_active: rgb(211,170,237);
+  --notice_box_bg: rgb(90,33,33);
+  --notice_box_text: rgb(255,255,255);
+  --notice_box_link: rgb(252,234,234);
+  --pagination_nonactive_link_bg: rgb(232,143,113);
+  --pagination_bg: rgb(84,70,66);
+  --pagination_active_link: rgb(255,255,255);
+  --pagination_link: rgb(255,255,255);
+  --quote_bg: rgb(40,15,16);
+  --quote_bg_alt: rgb(20,7,8);
+  --quote_border_color: rgb(200,200,200);
+  --set_width: 90%;
+  --strong: rgb(250,250,250);
+  --sub_bar_before_border_color: rgb(247,150,118);
+  --sub_bar_border_color: rgb(212,129,102);
+  --sub_bar_link: rgb(230,226,221);
+  --title_bar_bg: rgb(84,70,66);
+  --title_bar_bg2: rgb(66,55,52);
+  --title_bar_border_color: rgb(232,143,113);
+  --title_bar_link_color: rgb(255,255,255);
+  --title_text_color: rgb(255,255,255);
+  --toggle_switch: rgb(232, 143, 113);
+  --top_section_bg: rgb(84,70,66);
+  --top_section_bg2: rgb(66,55,52);
+  --top_menu_link: rgb(240,206,142);
+  --top_menu_link_hover: rgb(255,255,255);
+  --white: rgb(252,234,234);
+  --window_bg_1: rgb(75,58,54);
+  --window_bg_2: rgb(73,51,46);
+  --window_bg_approve: rgb(90,33,33);
+  --window_bg_locked: rgb(73,51,45);
+  --window_bg_hover: rgb(255,255,255,0.1);
+  --wrapper_bg: rgb(36,34,34);
+}
+
+/*! SCEditor | (C) 2011-2013, Sam Clarke | sceditor.com/license */
+html, p, code::before, table {
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #111;
+	line-height: 1.25;
+	overflow: visible;
+}
+html {
+	height: 100%;
+}
+.ios {
+	/* Needed for iOS scrolling bug fix */
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.ios body {
+	/* Needed for iOS scrolling bug fix */
+	position: relative;
+	overflow: auto;
+}
+body {
+	/* Needed to make sure body covers the whole editor and that
+		long lines don't cause horizontal scrolling */
+	min-height: 100%;
+	word-wrap: break-word;
+	margin: 0 5px;
+	padding: 0;
+}
+
+ul, ol {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+table, td {
+	border: 1px dotted #000;
+	empty-cells: show;
+	min-width: 0.5ch;
+}
+
+code::before {
+	position: absolute;
+	content: 'Code:';
+	top: -1.35em;
+	left: 0;
+}
+code[data-title]::before {
+	content: 'Code: (' attr(data-title) ')';
+}
+code {
+	margin-top: 1.5em;
+	position: relative;
+	background: var(--code_bg);
+	border: 1px solid var(--code_border_color);
+	border-top: 2px solid var(--code_border_color);
+	border-bottom: 3px solid var(--code_border_color);
+	white-space: pre;
+	padding: .25em;
+	display: block;
+}
+.ie6 code, .ie7 code {
+	margin-top: 0;
+}
+code::before, code {
+	display: block;
+	text-align: left;
+}
+/* The "Quote:" and "Code:" header parts... */
+.codeheader, .quoteheader {
+	color: var(--code_text_color);
+	font-size: 0.9em;
+	padding: 0 2px;
+}
+blockquote {
+	margin: 0 0 8px 0;
+	padding: 6px 10px;
+	font-size: 0.85rem;
+	border: 1px solid;
+	border-color: var(--main_border_cool_dark);
+	background-color: var(--quote_bg);
+	color: var(--white);
+}
+blockquote cite {
+	display: block;
+	border-bottom: 1px solid rgba(0, 0, 0);
+	font-size: 0.9em;
+	margin-bottom: 3px;
+}
+blockquote cite::before {
+	color: var(--link);
+	font-size: 22px;
+	font-style: normal;
+	content: "\275D";
+	margin-right: 3px;
+	vertical-align: middle;
+}
+.bbc_standard_quote {
+	background-color: var(--quote_bg);
+}
+.bbc_alternate_quote {
+	background-color: var(--quote_bg_alt);
+}
+blockquote cite + br,
+blockquote br:last-child {
+	display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding: 0;
+	margin: 0;
+}
+
+/* Make sure images stay within bounds */
+img {
+	max-width: 100%;
+}
+
+/* Responsive Youtube embed */
+.videocontainer {
+	max-width: 560px;
+}
+.videocontainer div {
+	position: relative;
+	padding-bottom: 56.25%;
+}
+.videocontainer iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.floatleft, .floatright {
+	max-width: 45%;
+	border: 1px dashed #aaa;
+	padding: 1px;
+	min-height: 1em;
+}
+.floatleft {
+	float: left;
+	clear: left;
+	margin: 0 1em 1em 0;
+}
+.floatright {
+	float: right;
+	clear: right;
+	margin: 0 0 1em 1em;
+}
+@media (max-width: 480px) {
+	.floatleft, .floatright {
+		max-width: 100% !important;
+		margin: 0 0.5em 1em !important;
+	}
+}
