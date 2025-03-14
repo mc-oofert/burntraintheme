@@ -79,7 +79,7 @@
 	--title_bar_link_color: rgb(255,255,255);
 	--title_text_color: rgb(255,255,255);
 	--toggle_switch: rgb(232, 143, 113);
-	--top_menu_bg: rgb(84, 70, 66);
+	--top_menu_bg: var(--menu_bg2);
 	--top_menu_link: rgb(240,206,142);
 	--top_menu_link_hover: rgb(255,255,255);
 	--top_section_bg2: rgb(66,55,52);
@@ -1408,8 +1408,7 @@
 	  width: 100%;
   }
   #main_content_section .navigate_section {
-	  margin: 4px 0 0 0;
-	  padding: 0;
+	  padding-top: 0em;
   }
   .navigate_section ul {
 	  margin: 0;
