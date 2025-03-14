@@ -1,4 +1,4 @@
-:root {
+:root { /* word of warning there may be a few missed colors */
 	--admin_legend_bg: rgb(23,32,41);
 	--admin_legend_border: 1px solid rgb(88,118,153);
 	--admin_legend_text_color: rgb(240,206,142);
@@ -6,19 +6,15 @@
 	--amt_bg_active: rgb(212,129,102);
 	--amt_color: rgb(0,0,0);
 	--amt_color_hover: rgb(40,40,40);
-	--bar_bg: rgb(212,129,102);
+	--bar_bg: rgb(106, 212, 102);
 	--bar_bg_2: rgb(53, 31, 26);
 	--birthday_text: rgb(113, 7, 152);
 	--black: rgb(0,0,0);
-	--board_icon_bg: rgb(232,143,113);
-	--board_stats_border_color: rgb(232,143,113);
 	--body_bg: rgb(11,11,11);
 	--body_text: rgb(250,250,250);
-	--button_bg: rgb(124, 76, 60);
-	--button_bg_2: rgb(84,70,66);
+	--button_bg: #242424;
+	--button_bg_2: #202020;
 	--button_bg_active: rgb(255,255,255);
-	--button_bg_gradient: linear-gradient(0deg, rgb(124, 76, 60) 0%, rgb(84,70,66)100%);
-	--button_bg_hover: rgb(255,255,255);
 	--button_border_color: rgb(0,0,0);
 	--button_link: rgb(255,255,255);
 	--calendar_disabled_bg: rgb(55,38,34);
@@ -26,64 +22,60 @@
 	--calendar_holiday_bg_hover: rgb(202, 119, 92);
 	--calendar_main_bg: rgb(211,170,237);
 	--calendar_text: rgb(255,255,255);
-	--cat_bar_border_color: rgb(232,143,113);
-	--cat_bar_box_shadow: 0px 0px 0px 1px rgb(2,4,1);
-	--cat_bar_link: rgb(255,255,255);
-	--cat_bg_color: rgb(67, 57, 55);
-	--cat_bg_img: url(../images/custom/cat_bar_left.png) no-repeat, url(../images/custom/cat_bar_right.png) top right no-repeat, url(../images/custom/cat_bar_mid.png) repeat-x;
-	--code_bg: rgb(31,31,31);
-	--code_border_color: rgb(28,23,32);
+	--cat_bar_link: #ddd;
+	--cat_bg_color: #272727 repeat-x;
+	--cat_bg_img: none;
+	--code_bg: #393A3E;
+	--code_border_color: #000;
 	--code_text_color: rgb(255,255,255);
 	--fieldset_legend_color: rgb(255,255,255);
-	--footer_bg: rgb(55,58,54);
-	--footer_border_color: rgb(232,143,113);
-	--footer_box_shadow: inset 0px 2px 3px rgb(0, 0, 0, 0.4);
-	--footer_link: rgb(238,238,238);
-	--header_bg: rgb(212,129,102);
+	--footer_bg: none;
+	--footer_border_color: none;
+	--footer_box_shadow: none;
+	--footer_link: #ceb54b;
+	--header_bg: #2B2B2B;
 	--holiday_text: rgb(2,93,255);
-	--ibst_color: rgb(0,0,0);
-	--infobox_link: rgb(212,129,102);
+	--ibst_color: #9F9F9F;
+	--infobox_link: #BA9100;
 	--infobox_text: rgb(230, 226, 221);
-	--input_bg: rgb(212,129,102);
-	--input_bg_hover: rgb(222,139,112); 
-	--input_border: none;
-	--input_border_hover: rgb(36,38,36);
+	--input_bg: #2f2f2f; 
+	--input_bg_hover: #2f2f2f; 
+	--input_border: #333;
+	--input_border_hover: #333;
 	--input_box_shadow: 0px 0px 3px 0px rgb(12, 29, 2) inset;
-	--link: rgb(230, 226, 221);
-	--link_hover: rgb(232,143,113);
-	--main_bg2: rgb(84,70,66);
-	--main_bg: rgb(124,76,60);
-	--main_border_cool: rgb(181,115,94) rgb(14,8,6) rgb(14,8,6) rgb(181,115,94);
+	--link: #ceb54b;
+	--link_hover: #BA9100;
+	--main_bg2: #242424;
+	--main_bg: #282828;
+	--main_border_cool: rgb(0,0,0);
 	--main_border_cool_dark: rgb(14,8,6);
-	--main_border_cool_light: rgb(181,115,94);
-	--menu_bg2: rgb(66,55,52);
-	--menu_bg: rgb(84,70,66);
+	--main_border_cool_light: #434343;
+	--menu_bg2: #242424;
+	--menu_bg: #282828;
 	--menu_border_color: rgb(232,143,113);
 	--menu_box_shadow: 0px 0px 0px 1px rgb(2,4,1);
-	--menu_link: rgb(242,242,242);
-	--menu_link_hover: rgb(255,255,255);
+	--menu_link: #BA9100;
+	--menu_link_hover: #222;
 	--moderation_link: rgb(212,129,102);
 	--new_posts_bg: rgb(232,143,113);
 	--new_posts_text: rgb(0, 0, 0);
 	--news_slide_active: rgb(211,170,237);
 	--notice_box_bg: rgb(90,33,33);
-	--notice_box_link: rgb(252,234,234);
+	--notice_box_link: #BA9100;
 	--notice_box_text: rgb(255,255,255);
-	--pagination_active_link: rgb(255,255,255);
-	--pagination_bg: rgb(84,70,66);
-	--pagination_link: rgb(255,255,255);
+	--pagination_active_link: #AAAAAA;
+	--pagination_bg: none;
+	--pagination_link: var(--link);
 	--pagination_nonactive_link_bg: rgb(232,143,113);
-	--quote_bg: rgb(40,15,16);
-	--quote_bg_alt: rgb(20,7,8);
-	--quote_border_color: rgb(200,200,200);
-	--set_width: 90%;
+	--quote_bg: #282828;
+	--quote_bg_alt: #252324;
+	--quote_border_color: #000;
 	--strong: rgb(250,250,250);
 	--sub_bar_before_border_color: rgb(247,150,118);
-	--sub_bar_border_color: rgb(212,129,102);
+	--sub_bar_border_color: #1E1E1E;
 	--sub_bar_link: rgb(230,226,221);
-	--title_bar_bg2: rgb(66,55,52);
-	--title_bar_bg: rgb(84,70,66);
-	--title_bar_border_color: rgb(232,143,113);
+	--title_bar_bg: #272727 repeat-x;
+	--title_bar_border_color: #1E1E1E;
 	--title_bar_link_color: rgb(255,255,255);
 	--title_text_color: rgb(255,255,255);
 	--toggle_switch: rgb(232, 143, 113);
@@ -93,12 +85,11 @@
 	--top_section_bg2: rgb(66,55,52);
 	--top_section_bg: rgb(84,70,66);
 	--white: rgb(252,234,234);
-	--window_bg_1: rgb(75,58,54);
-	--window_bg_2: rgb(73,51,46);
+	--window_bg_1: #202020;
+	--window_bg_2: #242424;
 	--window_bg_approve: rgb(90,33,33);
 	--window_bg_hover: rgb(255,255,255,0.1);
 	--window_bg_locked: rgb(73,51,45);
-	--wrapper_bg: rgb(36,34,34);
   }
   /* You can find detailed information at https://wiki.simplemachines.org/smf/Curve2_CSS
   /* Index */
@@ -107,11 +98,9 @@
 	  scroll-padding-top: 3rem;
   }
   body {
-	  background-size: 85px 85px;
-	  background-image: repeating-linear-gradient(45deg, rgb(232, 143, 113) 0px, rgb(232, 143, 113) 1px, #070605 0px, #070605 50%);
-	  font: 83.33%/150% "Segoe UI", "Helvetica Neue", "Nimbus Sans L", Arial, "Liberation Sans", sans-serif;
-	  color: var(--body_text);
-	  display: flex;
+    background: #101010 url(../images/bg.jpg);
+    margin: 0px;
+    padding: 10px 0px 4px 0px;
 	  flex-direction: column;
 	  min-height: 100vh;
   }
@@ -119,6 +108,12 @@
 	  text-shadow: none;
 	  background: rgb(255,255,255);
 	  color: var(--black);
+  }
+  body, td, th , tr
+  {
+    color: #aaa;
+    font-size: 85%;
+    font: 95%/90% Verdana, Helvetica, sans-serif;
   }
   /* General reset */
   * {
@@ -141,7 +136,7 @@
   }
   input, button, select, textarea {
 	  color: var(--ibst_color);
-	  font: 83.33%/150% "Segoe UI", "Helvetica Neue", "Nimbus Sans L", Arial, "Liberation Sans", sans-serif;
+	  font-family: verdana, sans-serif;
 	  background: var(--input_bg);
 	  outline: none;
 	  border: 1px solid var(--input_border);
@@ -162,13 +157,18 @@
 	  border-color: var(--input_border_hover);
 	  background: var(--input_bg_hover);
   }
-  input, button, select {
+  input, button {
 	  padding: 0 0.4em;
 	  height: 2em;
 	  line-height: 2em;
   }
   select {
-	  padding: 0.22em 0.2em; /* selects don't apply line-height */
+    border: solid 1px #333; 
+    background: #2f2f2f; 
+    font-size: 90%;
+    font-weight: normal;
+    color: #838383;
+    font-family: verdana, sans-serif;
   }
   /* Selects with more than one line */
   select[size] {
@@ -256,7 +256,6 @@
   /* This gives a better effect for those areas, and will default to bold for fonts which do not support numerical font-weight */
   strong, .strong {
 	  font-weight: bold;
-	  color: var(--strong);
   }
   .cat_bar strong {
 	  color: var(--strong);
@@ -267,7 +266,7 @@
   /* Default <strong> color on these tags */
   h1, h2, h3, h4, h5, h6 {
 	  font-size: 1em;
-	  color: var(--link);
+	  color: white;
   }
   /* All input elements that are checkboxes or radio buttons shouldn't have a border around them */
   input[type="checkbox"], input[type="radio"] {
@@ -294,7 +293,6 @@
 	  margin: 12px 0;
 	  height: 2px;
 	  background: var(--main_border_cool_light);
-	  box-shadow: 0 1px 0 var(--main_border_cool_dark) inset;
   }
   /* This is about links */
   a, a:visited {
@@ -472,21 +470,22 @@
   
   /* A code block - maybe PHP ;). */
   .bbc_code {
-	  display: block;
-	  font-size: 0.78rem;
-	  background: var(--code_bg);
-	  border: 1px solid var(--code_border_color);
-	  border-top: 2px solid var(--code_border_color);
-	  border-bottom: 3px solid var(--code_border_color);
-	  border-radius: 2px;
-	  margin: 1px 0 6px 0;
-	  padding: 3px 12px;
-	  overflow: auto;
-	  white-space: nowrap;
-	  max-height: 25em;
+    display: block;
+    font-family: "dejavu sans mono", "monaco", "lucida console", "courier new", monospace;
+    font-size: x-small;
+    background: var(--code_bg);
+    border-top: 1px solid var(--code_border_color);
+    border-bottom: 1px solid var(--code_border_color);
+    line-height: 1.3em;
+    padding: 1px;
+    overflow: auto;
+    white-space: pre;
+    /* Show a scrollbar after about 24 lines. */
+    max-height: 24em;
   }
   /* The "Quote:" and "Code:" header parts... */
   .codeheader, .quoteheader {
+    background: var(--code_bg);
 	  color: var(--code_text_color);
 	  font-size: 0.9em;
 	  padding: 0 2px;
@@ -559,18 +558,20 @@
   
   /* Those collapse and expand icons are wonderful. */
   
-  .toggle_down:before, .toggle_up:before {
-	  color: var(--toggle_switch);
-	  font-size: 20px;
-  }
-  .toggle_down:before {
-	  font-family: "Font Awesome 6 Free";
-	  content: "\f150";
+  .smallcollapse.toggle_down {
+	  background-image: url(../images/expand.gif);
+    width: 15px;
+    height: 15px;
   }
   
-  .toggle_up:before {
-	  font-family: "Font Awesome 6 Free";
-	  content: "\f151";
+  .smallcollapse.toggle_up {
+	  background-image: url(../images/collapse.gif);
+    width: 15px;
+    height: 15px;
+  }
+
+  .cattoggle {
+    margin-top: 7px;
   }
   
   /* Generally, those [?] icons. This makes your cursor a help icon. */
@@ -597,8 +598,7 @@
 	  clear: both;
   }
   .pagesection .pagelinks {
-	  display: inline-block;
-	  float: left;
+	  display: block;
   }
   .pages::after, .jump_to::after, .code::after,
   strong[id^='child_list_']::after {
@@ -882,13 +882,9 @@
 	  color: var(--black);
   }
   
-  .dropmenu li a {
-	  padding: 5px 7px 5px 5px;
-	  display: block;
-	  border-radius: 0px;
-	  font-weight: 700;
-	  border-right: 1px solid var(--main_border_cool_light);
-	  box-shadow: 1px 0px 0px 0px var(--main_border_cool_dark);	
+  .dropmenu li a.active, .dropmenu li a:hover {
+    background: url(../images/active.gif) 0 50% repeat-x;
+	  color: #222;
   }
   
   #top_info > li > a {
@@ -900,13 +896,12 @@
 	  box-shadow: 1px 0px 0px 0px var(--main_border_cool_dark);	
   }
   /* Level 1 active button. */
-  .dropmenu a.active, #top_info a.active {
+  .dropmenu a.active {
 	  color: var(--menu_link_hover);
 	  font-weight: bold;
   }
   /* Level 1 hover effects. */
-  .dropmenu > li:hover > a, .dropmenu > li > a:focus,
-  #top_info > li:hover > a, #top_info > li > a:focus, #top_info > li > a.open {
+  .dropmenu > li:hover > a {
 	  color: var(--menu_link_hover);
 	  cursor: pointer;
 	  text-decoration: none;
@@ -923,9 +918,8 @@
   }
   
   #main_menu {
-	  background: var(--menu_bg);
-	  background: linear-gradient(180deg, var(--menu_bg) 0%, var(--menu_bg2) 100%);
-	  padding: 0px 2px;
+    background: url(../images/toolbar_bg.gif) 0 0 repeat-x;
+    height: 38px;
   }
   
   /* User information. */
@@ -1042,7 +1036,6 @@
 	  background: var(--menu_bg);
 	  margin-top: 0px;
 	  box-shadow: 0px 2px 3px rgb(0,0,0,0.4);
-	  border-top: 1px solid var(--board_stats_border_color);	
   }
   
   .top_menu {
@@ -1112,7 +1105,6 @@
   .dropmenu li li:hover > a, .dropmenu li li a:focus, .dropmenu li li a:hover {
 	  color: var(--menu_link_hover);
 	  text-decoration: none;
-	  border-bottom: 1px solid var(--board_stats_border_color);
   }
   /* Reposition Level 2 submenu as visible on hover. */
   .dropmenu li:hover ul {
@@ -1146,7 +1138,7 @@
   
   /* Styles for the standard button lists.
   ------------------------------------------------------- */
-  .buttonlist, .buttonrow, .pagelinks {
+  .buttonlist, .buttonrow {
 	  z-index: 100;
 	  padding: 5px 0 5px 0;
   }
@@ -1163,7 +1155,6 @@
 	  box-sizing: border-box;
 	  vertical-align: middle;
 	  background: var(--button_bg);
-	  background-image: linear-gradient(var(--button_bg) 0%, var(--button_bg_2) 100%);
 	  border: 1px solid;
 	  border-color: var(--main_border_cool);
 	  box-shadow: none;
@@ -1231,14 +1222,14 @@
   #wrapper {
 	  clear: both;
 	  background: var(--wrapper_bg);
-	  border: none;
+	  border: 1px solid #222;
+    background-color: #1e1e1e;
 	  position: relative;
-	  padding: 0px 8px;
+	  padding: 1px;
   }
   /* Set maximum width limit for content */
   #top_section, #wrapper, #main_menu, #header, #footer {
 	  margin: 0 auto;
-	  max-width: var(--set_width);
 	  width: unset;
   }
   
@@ -1264,6 +1255,9 @@
 	  left: 0;
 	  right: 0;
 	  padding-right: 10px;
+  }
+  #profile_menu {
+    max-width: fit-content;
   }
   #profile_menu_top > img.avatar {
 	  height: 18px;
@@ -1300,7 +1294,7 @@
   /* The main title. */
   h1.forumtitle {
 	  font-size: 1.8em;
-	  font-family: "Tahoma", sans-serif;
+	  font-family: Verdana, Helvetica, sans-serif;
 	  padding: 15px 0px 0px 10px;
 	  font-weight: normal;
 	  flex: 1 1 auto;
@@ -1388,26 +1382,28 @@
 	  margin-left: -2px;
   }
   /* News section. */
-  #inner_wrap .news {
-	  padding: 0px 0px 0px 1ch;
-	  font-size: 0.9em;
-	  display: flex;
-	  align-items: baseline;
-	  max-width: 50%;
+  #news_section {
+	  padding: 0.5em 1em 0.5em 1em;
+	  font-size: 0.8em;
   }
-  #inner_wrap .news h2 {
+  #news_section .news h3 {
 	  line-height: initial;
+    font-size: 0.8em;
+    margin-right: 1em;
+    display: inline;
   }
-  #inner_wrap .news h2,
-  #inner_wrap .news p {
-	  display: inline;
-	  padding-left: 1ch;
-	  color: var(--white);
+  #news_section .news p {
+    display: inline;
+	  color: #7c7c7c;
+    font-style: normal;
+  }
+  #news_section #search_form {
+    margin-top: -4px;
   }
   
   /* The navigation list (i.e. linktree) */
   .navigate_section {
-	  padding: 0px;
+	  padding: 1.5em 0.5em 0.5em 0.5em;
 	  float: left;
 	  width: 100%;
   }
@@ -1417,37 +1413,31 @@
   }
   .navigate_section ul {
 	  margin: 0;
-	  padding: 0px 5px 3px 5px;
-	  font-size: 0.9em;
+	  font-size: 0.8em;
 	  overflow: hidden;
 	  border: none;
-	  border-radius: 2px;
-	  background: var(--window_bg_1);
-	  border: 1px solid;
-	  border-color: var(--main_border_cool);
   }
   .navigate_section ul li {
 	  float: left;
-	  padding-bottom: 3px;
-	  line-height: 1.1em;
 	  color: var(--white);
 	  font-weight: 700;
+    font-size: 0.8em;
   }
   .navigate_section ul li a, .navigate_section ul li em {
-	  padding: 4px 0 4px;
-	  margin-top: -4px;
 	  display: inline-block;
+    color: white;
+  }
+
+  .navigate_section ul li a:hover {
+    color: var(--link_hover);
   }
   
-  .navigate_section ul li.last a {
-	  color: var(--body_text);
-  }
   .navigate_section ul li span {
 	  display: inline-block;
 	  margin-top: 8px;
   }
   .navigate_section ul li .dividers {
-	  color: var(--link);
+	  color: var(--white);
 	  font: 83.33%/150% Arial, sans-serif;
 	  padding: 0 2px 0 6px;
   }
@@ -1508,7 +1498,13 @@
 	  text-decoration: underline;
   }
   #footerfix {
-	  flex: 1 0 auto;
+	  display: block;
+    background: #181818;
+    border: 1px solid #1c1c1c;
+    padding: 6px;
+    margin-top: 15px;
+    margin: 0 auto;
+    width: 90%;
   }
   
   /* The posting icons */
@@ -1863,10 +1859,10 @@
 	  border: 1px solid #222;
   }
   .valid_input {
-	  background: #f5fff0;
+	  background: rgb(72, 143, 69);
   }
   .invalid_input {
-	  background: #fff0f0;
+	  background: rgb(97, 41, 41);
   }
   
   /* Styles for maintenance mode.
@@ -3020,7 +3016,6 @@
 	  position: relative;
 	  width: auto;
 	  z-index: 99;
-	  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 	  border: 1px solid var(--main_border_cool);
 	  border-radius: 7px 7px 3px 3px;
 	  margin: 0 auto;
@@ -3089,11 +3084,6 @@
 	  background: var(--window_bg_hover);
   }
   
-  /* Add some hover on table rows */
-  tr.windowbg:hover {
-	  background: var(--window_bg_hover);
-  }
-  
   /* Special treatment for #forumposts area */
   #forumposts .windowbg, #forumposts .approvebg, #forumposts .approvebg2, #pmFolder .windowbg {
 	  overflow: visible;
@@ -3104,11 +3094,11 @@
   }
   /* Sticky topics get a different background */
   .windowbg.sticky {
-	  background: var(--window_bg_locked);
+	  background: #242424;
   }
   /* Locked AND sticky are a bit more technical */
   .windowbg.sticky.locked {
-	  background: var(--window_bg_locked);
+	  background: #2f2826;
   }
   /* Awaiting approval is a bit special, topics first */
   .windowbg.approvetopic {
@@ -3200,101 +3190,61 @@
   .board_icon a {
 	  display: inline;
   }
-  .board_icon a:hover {
-	  opacity: 0.8;
-	  display: inline;
-	  text-decoration: none;
-  }
-  .board_icon a::before {
-	  display: inline;
-	  font-family: "Font Awesome 6 Free";
-	  font-size: 2em;
-	  content: "\f7e4";
-	  color: var(--board_icon_bg);
-  }
-  .board_icon a.board_on::before {
-	  font-weight: 700;
-  }
-  .board_icon a.board_on2::before {
-	  font-weight: 700;
-  }
-  .board_icon a.board_off::before {
-	  font-weight: 700;
-	  opacity: 0.6;
-  }
-  .board_icon a.board_redirect::before {
-	  font-weight: 900;
-	  content: "\f35a";
-  }
-  .boardindex_table .board_icon {
-	  width: 80px;
-  }
-  .boardindex_table .info {
-	  width: calc(55% - 80px);
-  }
-  .boardindex_table .board_stats {
-	  padding: 13px 10px 10px;
-  }
-  .boardindex_table .board_stats p {
-	  border-left: 1px solid var(--board_stats_border_color);
-	  border-right: 1px solid var(--board_stats_border_color);
+  .board_icon {
+    text-align: center;
+    padding: 0.5em;
+    width: 6%;
+    background-color: #202020;
   }
   .info {
 	  overflow: hidden;
-	  overflow-wrap: break-word;
-	  padding: 5px 5px 5px 0;
-	  flex-grow: 1;
+	  width: 60%;
+    padding: 0;
   }
   .info .subject {
 	  font-weight: 700;
-	  font-size: 1.1em;
+	  font-size: 1em;
 	  color: var(--link);
+  }
+  .info h4  {
+    padding: 0.4em 0.4em 0 0.4em;
+    margin: 0;
+  }
+  .info .board_description {
+    padding: 0 0.4em 0.5em 0.4em;
   }
   .subject:hover {
 	  color: var(--link_hover);
   }
   .board_stats {
-	  width: 15%;
-	  font-size: 0.9em;
-	  margin: 0 0 0 auto;
+	  width: 8%;
+	  font-size: 0.85em;
+	  vertical-align: middle;
 	  text-align: center;
+    background-color: #202020;
   }
   .lastpost {
-	  width: 20%;
-	  font-size: 0.9em;
-	  padding-top: 3px;
+	  width: 22%;
+	  font-size: 0.85em;
+	  padding: 0.5em;
   }
-  .board_icon, .info, .board_stats, .lastpost {
-	  display: inline-block;
-	  align-self: center;
+  .info, .board_stats, .lastpost {
+	  height: 100%;
   }
   .main_container {
 	  margin-bottom: 20px;
   }
   .up_contain {
-	  background: var(--window_bg_1);
+	  background: #242424;
 	  overflow: hidden;
-	  border: 1px solid;
-	  border-color: var(--main_border_cool);
-	  margin: 0px 0px 0px 0px;
-	  display: flex;
-	  flex-wrap: wrap;
-  }
-  .up_contain:nth-of-type(even), .bg.even {
-	  background: var(--window_bg_2);
-  }
-  .up_contain:nth-of-type(odd), .bg.odd {
-	  background: var(--window_bg_1);
   }
   /* Child boards */
   .children {
-	  box-shadow: 0px 0px 0px 1px var(--main_border_cool_dark);
-	  border-top: 1px solid var(--main_border_cool_light);
-	  padding: 5px;
+	  background-color: #282828;
+	  border-top: 1px solid #1e1e1e; /* Background of the table but we arent a cell so we have to do a thing*/
+	  padding: 0.7em;
 	  width: 100%;
-  }
-  .children p {
-	  font-size: 0.9em;
+    font-size: 0.85em;
   }
   .children span::after {
 	  content: ", ";
@@ -3312,6 +3262,7 @@
   /* Info Center */
   #info_center {
 	  clear: both;
+    font-size: 0.9em;
   }
   #info_center .sub_bar:first-child {
 	  border-top: none;
@@ -3321,6 +3272,33 @@
 	  margin: 0px;
 	  border: none;
 	  border-radius: 0px;
+    background: none;
+  }
+  #info_center p.infosection {
+	  margin-left: 30px;
+    padding: 0.3em;
+    border-left: 1px solid #181818;
+    min-height: 25px;
+    height: auto !important;
+    background: #242424;
+  }
+
+  #info_center .leftsection{
+    display: block;
+    margin: 0;
+    width: 30px;
+    text-align: center;
+    float: left;
+    padding: 0.5em 0 0 0;
+  }
+  #info_center .subbg{
+    color: #7c7c7c;
+    overflow: hidden;
+    line-height: 2em;
+    font-weight: bold;
+    border-left: 1px solid #1a1a1a;
+    border-right: 1px solid #1a1a1a;
+    padding: 0 10px;
   }
   #upshrink_stats {
 	  margin-top: 0px;
@@ -3389,8 +3367,6 @@
   /* Topic list */
   #topic_header {
 	  margin: 0;
-	  border-radius: 0;
-	  display: flex;
   }
   #topic_header div {
 	  font-weight: bold;
@@ -3403,7 +3379,6 @@
   #topic_container .windowbg {
 	  border: 1px solid;
 	  border-color: var(--main_border_cool);
-	  display: flex;
 	  box-shadow: none;
 	  border-radius: 0;
 	  padding: 0;
@@ -3911,9 +3886,6 @@
   .cat_bar.cat_bar_round {
 	  border-radius: 6px;
   }
-  .cat_bar h3 {
-	  padding: 8px 12px 6px 12px;
-  }
   /* Styles for rounded headers. */
   .cat_bar .desc {
 	  color: var(--cat_bar_link);
@@ -3927,10 +3899,18 @@
 	  color: #fff;
 	  font-weight: 600;
   }
+  .catbg {
+    border-bottom: 1px solid #1E1E1E;
+    background: #272727 repeat-x;
+    color: #ddd;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   h3.catbg {
 	  overflow: hidden;
-	  font-size: 1.1em;
-	  font-family: "Tahoma", sans-serif;
+	  line-height: 2em;
+    font-weight: bold;
+	  font-family: Verdana, Helvetica, sans-serif;
   }
   h3.catbg, h3.catbg a, h3.catbg a:hover {
 	  color: var(--cat_bar_link);
@@ -3964,7 +3944,6 @@
   .title_bar {
 	  border: none;
 	  background: var(--title_bar_bg);
-	  background: linear-gradient(180deg, var(--title_bar_bg) 0%, var(--title_bar_bg2) 100%);
 	  border-radius: 0px;
 	  border-top: 2px solid var(--title_bar_border_color);
 	  border-bottom: 2px solid var(--title_bar_border_color);
@@ -3975,13 +3954,13 @@
   .sub_bar {
 	  border-bottom: 1px solid var(--sub_bar_border_color);
 	  text-shadow: none;
-	  background: none;
-	  box-shadow: 0 -1px 0 var(--sub_bar_border_color) inset;
+	  background: #202020 repeat-x;
 	  clear: both;
 	  position: relative;
+    border-bottom: 1px solid #252525;
+    border-top: 1px solid #222;
   }
   .sub_bar:before {
-	  background: var(--sub_bar_before_border_color);
 	  position: absolute;
 	  width: 150px;
 	  content: "";
@@ -3992,7 +3971,7 @@
   h3.titlebg, h4.titlebg, .titlebg, h3.subbg, h4.subbg, .subbg {
 	  background: none;
 	  color: var(--title_text_color);
-	  font-family: "Tahoma", sans-serif;
+	  font-family: Verdana, Helvetica, sans-serif;
 	  font-weight: bold;
 	  overflow: hidden;
 	  padding: 8px 12px 6px 12px;
@@ -4025,9 +4004,6 @@
 	  background: var(--window_bg_1);
 	  overflow: auto;
 	  padding-bottom: .5em;
-	  border: 1px solid;
-	  border-color: var(--main_border_cool);
-	  border-radius: 0 0 7px 7px;
 	  margin: 0 0 10px 0;
 	  padding: 12px 9px 8px 9px;
   }
@@ -4499,3 +4475,166 @@
   input[type="radio"] {
 	filter: hue-rotate(165deg);						
   }
+  /* The Frame borders that wrap around BLACKRAIN-V3.
+------------------------------------------------------- */
+/* Outside borders left.
+------------------------------------------------------- */
+#ob1 {
+	border-top: 1px solid #2f2f2f;
+	border-right: 1px solid #111111;
+	border-bottom: 1px solid #111111;
+	border-left: 1px solid #2f2f2f;
+	background: #2f2f2f  url(../images/strip.gif) repeat top left;
+	padding: 8px 8px 30px 8px;
+}
+/* Inside borders left.
+------------------------------------------------------- */
+#ib1 {
+	border-top: 1px solid #111111;
+	border-right: 1px solid #2f2f2f;
+	border-bottom: 1px solid #2f2f2f;
+	border-left: 1px solid #111111;
+	background-color: #111111;
+	padding: 8px 8px 30px 8px;
+}
+
+#logowrap {
+  background: #181818;
+  border: 1px solid #1c1c1c;
+  padding: 4px;
+  margin-top: 15px;
+}
+
+#tborder {
+  padding: 1px;
+  border: 1px solid #222;
+  background-color: #1e1e1e;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px
+}
+
+#footer * a {
+  color: #ceb54b;
+}
+
+.bordercolor {
+  background-color: #181818;
+  padding: 0px;
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+/* Headers of the msgindex table */
+.msgindex {
+  font-size: 95%;
+  color: #ddd;
+  text-decoration: none;
+  border-bottom: 1px solid #1E1E1E;
+  padding: 0.5em;
+  background: #272727 repeat-x;
+}
+
+.msgindex.board_icon {
+  width: 9%;
+}
+.msgindex.starter {
+  width: 11%;
+}
+.msgindex.board_stats, .msgindexrow.board_stats, .msgindexrow.board_icon {
+  width: 4%;
+}
+.msgindex a:hover {
+  color: #999;
+}
+.msgindexrow.starter {
+  width: 14%;
+  background-color: #242424;
+}
+.msgindexrow.lastpost {
+  width: 22%;
+  background-color: #242424;
+  padding: 0.5em;
+}
+.msgindex.info {
+  width:auto;
+}
+.msgindexrow.board_icon {
+  background-color: #242424;
+}
+.msgindexrow .message_index_title {
+  padding: 0.5em;
+}
+.msgindexrow.sticky:not(.locked) .message_index_title {
+  background-color: #282828;
+}
+.msgindexrow.sticky .board_stats {
+  background-color: #282828;
+}
+#manage_boards * .sub_bar {
+  background-color: #282828;
+  border: 1px solid black;
+}
+.topbg {
+  color: #7c7c7c;
+  font-style: normal;
+  background: #202020 repeat-x;
+  border-bottom: 1px solid #252525;
+  border-top: 1px solid #222;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+}
+#forum_name {
+  padding: 0.6em 0 0.6em 0;
+  margin: 0;
+  font-family: Optima, Vagabond, Trebuchet MS, Verdana, helvetica, sans-serif;
+  font-size: 135%;
+  color: #fff;
+}
+#greeting_section {
+  padding: 0.7em 0.4em 0.7em 0.4em;
+}
+#greeting_section li {
+  font-weight: normal;
+}
+#greeting_section li em {
+  font-style: normal;
+  font-weight: bold;
+}
+#greeting_section li#name {
+  padding-left: 0.5em;
+}
+.dropmenu {
+  height: 38px;
+}
+.dropmenu > li { /* God has abandoned us on this day */
+  float: left;
+  margin: 0;
+  padding: 0 0 0 2px;
+  position: relative;
+  list-style: none;
+}
+.dropmenu > li > a {
+  display: block;
+  line-height: 38px;
+  padding: 0 12px;
+  color: #bbb;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+.dropmenu.menu_nav li a .main_icons {
+  display: none; /* couldnt figure out how to remove the icons oops */
+}
+img[id^='verification_image_register'] {
+  filter: invert(100%);
+}
+#display_head.information {
+  margin: unset;
+  padding: 0.5em;
+}
+#display_head.information p {
+  display: inline-block;
+}

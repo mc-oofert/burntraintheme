@@ -76,7 +76,7 @@ function template_main()
 		// If this category even can collapse, show a link to collapse it.
 		if ($category['can_collapse'])
 			echo '
-					<span id="category_', $category['id'], '_upshrink" class="', $category['is_collapsed'] ? 'toggle_down' : 'toggle_up', ' floatright" data-collapsed="', (int) $category['is_collapsed'], '" title="', !$category['is_collapsed'] ? $txt['hide_category'] : $txt['show_category'], '" style="display: none;"></span>';
+					<span id="category_', $category['id'], '_upshrink" class="smallcollapse ', $category['is_collapsed'] ? 'toggle_down' : 'toggle_up', ' floatright cattoggle" data-collapsed="', (int) $category['is_collapsed'], '" title="', !$category['is_collapsed'] ? $txt['hide_category'] : $txt['show_category'], '" style="display: none;"></span>';
 
 			echo '
 					<span>', $category['link'], '</span>
@@ -85,6 +85,7 @@ function template_main()
 			 </h3></div>
 			<div id="category_', $category['id'], '_boards" ', (!empty($category['css_class']) ? ('class="' . $category['css_class'] . '"') : ''), $category['is_collapsed'] ? ' style="display: none;"' : '', '>';
 
+		echo '<table class="bordercolor" style="width: 100%" cellspacing="1">';
 		/* Each board in each category's boards has:
 		new (is it new?), id, name, description, moderators (see below), link_moderators (just a list.),
 		children (see below.), link_children (easier to use.), children_new (are they new?),
@@ -92,63 +93,74 @@ function template_main()
 		foreach ($category['boards'] as $board)
 		{
 			echo '
-				<div id="board_', $board['id'], '" class="up_contain ', (!empty($board['css_class']) ? $board['css_class'] : ''), '">
-					<div class="board_icon">
-						', function_exists('template_bi_' . $board['type'] . '_icon') ? call_user_func('template_bi_' . $board['type'] . '_icon', $board) : template_bi_board_icon($board), '
-					</div>
-					<div class="info">
-						', function_exists('template_bi_' . $board['type'] . '_info') ? call_user_func('template_bi_' . $board['type'] . '_info', $board) : template_bi_board_info($board), '
-					</div><!-- .info -->';
+				<tr id="board_', $board['id'], '" class="up_contain ', (!empty($board['css_class']) ? $board['css_class'] : ''), '">
+					<td class="board_icon">
+						', function_exists('template_bi_' . $board['type'] . '_icon') ? call_user_func('template_bi_board_icon', $board) : template_bi_board_icon($board), '
+					</td>
+					<td class="info">
+						', function_exists('template_bi_' . $board['type'] . '_info') ? call_user_func('template_bi_' . $board['type'] . '_info', $board) : template_bi_board_info($board), '';
+						
+					// Won't somebody think of the children!
+					if (function_exists('template_bi_' . $board['type'] . '_children'))
+						call_user_func('template_bi_' . $board['type'] . '_children', $board);
+					else
+						template_bi_board_children($board);
+						
+						
+					echo	'
+					</td><!-- .info -->';
 
 			// Show some basic information about the number of posts, etc.
 			echo '
-					<div class="board_stats">
+					<td class="board_stats">
 						', function_exists('template_bi_' . $board['type'] . '_stats') ? call_user_func('template_bi_' . $board['type'] . '_stats', $board) : template_bi_board_stats($board), '
-					</div>';
+					</td>';
 
 			// Show the last post if there is one.
 			echo'
-					<div class="lastpost">
+					<td class="lastpost">
 						', function_exists('template_bi_' . $board['type'] . '_lastpost') ? call_user_func('template_bi_' . $board['type'] . '_lastpost', $board) : template_bi_board_lastpost($board), '
-					</div>';
-
-			// Won't somebody think of the children!
-			if (function_exists('template_bi_' . $board['type'] . '_children'))
-				call_user_func('template_bi_' . $board['type'] . '_children', $board);
-			else
-				template_bi_board_children($board);
+					</td>';
 
 			echo '
-				</div><!-- #board_[id] -->';
+				</tr><!-- #board_[id] -->';
 		}
-
-		echo '
+		
+		echo '</table>
 			</div><!-- #category_[id]_boards -->
 		</div><!-- .main_container -->';
 	}
 
 	echo '
 	</div><!-- #boardindex_table -->';
-
-	// Show the mark all as read button?
-	if ($context['user']['is_logged'] && !empty($context['categories']))
-		echo '
-	<div class="mark_read">
-		', template_button_strip($context['mark_read_button'], 'right'), '
-	</div>';
 }
 
 /**
- * Outputs the board icon for a standard board.
+ * Outputs the board icon for a standard and redirect board.
  *
  * @param array $board Current board information.
  */
 function template_bi_board_icon($board)
 {
-	global $context, $scripturl;
+	global $context, $scripturl, $settings, $txt;
+	echo '
+	<a href="', ($board['is_redirect'] || $context['user']['is_guest'] ? $board['href'] : $scripturl . '?board=' . $board['id'] . '.0'), '">';
+
+	// If the board or children is new, show an indicator.
+	if ($board['new'] || $board['children_new'])
+		echo '
+			<img src="', $settings['images_url'], '/on', $board['new'] ? '' : '2', '.gif" alt="', $txt['new_posts'], '" title="', $txt['new_posts'], '" border="0" />';
+	// Is it a redirection board?
+	elseif ($board['is_redirect'])
+		echo '
+			<img src="', $settings['images_url'], '/redirect.gif" alt="*" title="*" border="0" />';
+	// No new posts at all! The agony!!
+	else
+		echo '
+			<img src="', $settings['images_url'], '/off.gif" alt="', $txt['old_posts'], '" title="', $txt['old_posts'], '" />';
 
 	echo '
-		<a href="', ($context['user']['is_guest'] ? $board['href'] : $scripturl . '?action=unread;board=' . $board['id'] . '.0;children'), '" class="board_', $board['board_class'], '"', !empty($board['board_tooltip']) ? ' title="' . $board['board_tooltip'] . '"' : '', '></a>';
+		</a>';
 }
 
 /**
@@ -173,10 +185,10 @@ function template_bi_board_info($board)
 {
 	global $context, $scripturl, $txt;
 
-	echo '
+	echo '<h4>
 		<a class="subject mobile_subject" href="', $board['href'], '" id="b', $board['id'], '">
 			', $board['name'], '
-		</a>';
+		</a></h4>';
 
 	// Has it outstanding posts for approval?
 	if ($board['can_approve_posts'] && ($board['unapproved_posts'] || $board['unapproved_topics']))
@@ -184,7 +196,7 @@ function template_bi_board_info($board)
 		<a href="', $scripturl, '?action=moderate;area=postmod;sa=', ($board['unapproved_topics'] > 0 ? 'topics' : 'posts'), ';brd=', $board['id'], ';', $context['session_var'], '=', $context['session_id'], '" title="', sprintf($txt['unapproved_posts'], $board['unapproved_topics'], $board['unapproved_posts']), '" class="moderation_link amt">!</a>';
 
 	echo '
-		<div class="board_description">', $board['description'], '</div>';
+		<p class="board_description">', $board['description'], '</p>';
 
 	// Show the "Moderators: ". Each has name, href, link, and id. (but we're gonna use link_moderators.)
 	if (!empty($board['link_moderators']))
@@ -203,7 +215,7 @@ function template_bi_board_stats($board)
 
 	echo '
 		<p>
-			', $txt['posts'], ': ', comma_format($board['posts']), '<br>', $txt['board_topics'], ': ', comma_format($board['topics']), '
+			',$board['posts'], ' ',$txt['posts'], '<br>', $board['topics'], ' ', $txt['board_topics'], '
 		</p>';
 }
 
@@ -218,7 +230,7 @@ function template_bi_redirect_stats($board)
 
 	echo '
 		<p>
-			', $txt['redirects'], ': ', comma_format($board['posts']), '
+			',$board['posts'],' ', $txt['redirects'], '
 		</p>';
 }
 
@@ -295,8 +307,8 @@ function template_info_center()
 	<div class="roundframe" id="info_center">
 		<div class="title_bar">
 			<h3 class="titlebg">
-				<span class="toggle_up floatright" id="upshrink_ic" title="', $txt['hide_infocenter'], '" style="display: none;"></span>
-				<a href="#" id="upshrink_link">', sprintf($txt['info_center_title'], $context['forum_name_html_safe']), '</a>
+				<span class="toggle_up floatleft" id="upshrink_ic" title="', $txt['hide_infocenter'], '" style="display: none; margin-right: 6px; text-align: right;"></span>
+				', sprintf($txt['info_center_title'], $context['forum_name_html_safe']), '
 			</h3>
 		</div>
 		<div id="upshrink_stats"', empty($options['collapse_header_ic']) ? '' : ' style="display: none;"', '>';
@@ -468,11 +480,10 @@ function template_ic_block_stats()
 	// Show statistical style information...
 	echo '
 			<div class="sub_bar">
-				<h4 class="subbg">
-					<a href="', $scripturl, '?action=stats" title="', $txt['more_stats'], '"><span class="main_icons stats"></span> ', $txt['forum_stats'], '</a>
-				</h4>
+				<h4 class="subbg">', $txt['forum_stats'], '</h4>
 			</div>
-			<p class="inline">
+			<p class="leftsection"><a href="', $scripturl, '?action=stats" title="', $txt['more_stats'], '"><span class="main_icons stats"></span></a></p>
+			<p class="infosection">
 				', $context['common_stats']['boardindex_total_posts'], '', !empty($settings['show_latest_member']) ? ' - ' . $txt['latest_member'] . ': <strong> ' . $context['common_stats']['latest_member']['link'] . '</strong>' : '', '<br>
 				', (!empty($context['latest_post']) ? $txt['latest_post'] . ': <strong>&quot;' . $context['latest_post']['link'] . '&quot;</strong>  (' . $context['latest_post']['time'] . ')<br>' : ''), '
 				<a href="', $scripturl, '?action=recent">', $txt['recent_view'], '</a>
@@ -489,10 +500,11 @@ function template_ic_block_online()
 	echo '
 			<div class="sub_bar">
 				<h4 class="subbg">
-					', $context['show_who'] ? '<a href="' . $scripturl . '?action=who">' : '', '<span class="main_icons people"></span> ', $txt['online_users'], '', $context['show_who'] ? '</a>' : '', '
+				', $txt['online_users'], '
 				</h4>
 			</div>
-			<p class="inline">
+			<p class="leftsection">', $context['show_who'] ? '<a href="' . $scripturl . '?action=who">' : '', '<span class="main_icons people"></span> ', $context['show_who'] ? '</a>' : '', '</p>
+			<p class="infosection">
 				', $context['show_who'] ? '<a href="' . $scripturl . '?action=who">' : '', '<strong>', $txt['online'], ': </strong>', comma_format($context['num_guests']), ' ', $context['num_guests'] == 1 ? $txt['guest'] : $txt['guests'], ', ', comma_format($context['num_users_online']), ' ', $context['num_users_online'] == 1 ? $txt['user'] : $txt['users'];
 
 	// Handle hidden users and buddies.

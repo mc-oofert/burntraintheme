@@ -17,67 +17,36 @@ function template_main()
 {
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
-	echo '<div id="display_head" class="information">
-			<h2 class="display_title">', $context['name'], '</h2>';
-
-	if (isset($context['description']) && $context['description'] != '')
-		echo '
-			<p>', $context['description'], '</p>';
-
-	if (!empty($context['moderators']))
-		echo '
-			<p>', count($context['moderators']) === 1 ? $txt['moderator'] : $txt['moderators'], ': ', implode(', ', $context['link_moderators']), '.</p>';
-
-	if (!empty($settings['display_who_viewing']))
-	{
-		echo '
-			<p>';
-
-		// Show just numbers...?
-		if ($settings['display_who_viewing'] == 1)
-			echo count($context['view_members']), ' ', count($context['view_members']) == 1 ? $txt['who_member'] : $txt['members'];
-		// Or show the actual people viewing the topic?
-		else
-			echo empty($context['view_members_list']) ? '0 ' . $txt['members'] : implode(', ', $context['view_members_list']) . ((empty($context['view_num_hidden']) || $context['can_moderate_forum']) ? '' : ' (+ ' . $context['view_num_hidden'] . ' ' . $txt['hidden'] . ')');
-
-		// Now show how many guests are here too.
-		echo $txt['who_and'], $context['view_num_guests'], ' ', $context['view_num_guests'] == 1 ? $txt['guest'] : $txt['guests'], $txt['who_viewing_board'], '
-			</p>';
-	}
-
-	echo '
-		</div>';
-
 	if (!empty($context['boards']) && (!empty($options['show_children']) || $context['start'] == 0))
 	{
 		echo '
-	<div id="board_', $context['current_board'], '_childboards" class="boardindex_table main_container">
+	<table style="width: 100%" cellspacing="1" id="board_', $context['current_board'], '_childboards" class="boardindex_table bordercolor main_container">
 		<div class="cat_bar">
 			<h3 class="catbg">', $txt['sub_boards'], '</h3>
-		</div>';
+		</div><tbody>';
 
 		foreach ($context['boards'] as $board)
 		{
 			echo '
-		<div id="board_', $board['id'], '" class="up_contain ', (!empty($board['css_class']) ? $board['css_class'] : ''), '">
-			<div class="board_icon">
-				', function_exists('template_bi_' . $board['type'] . '_icon') ? call_user_func('template_bi_' . $board['type'] . '_icon', $board) : template_bi_board_icon($board), '
-			</div>
-			<div class="info">
+		<tr id="board_', $board['id'], '" class="up_contain ', (!empty($board['css_class']) ? $board['css_class'] : ''), '">
+			<td class="board_icon">
+				', function_exists('template_bi_' . $board['type'] . '_icon') ? call_user_func('template_bi_board_icon', $board) : template_bi_board_icon($board), '
+			</td>
+			<td class="info">
 				', function_exists('template_bi_' . $board['type'] . '_info') ? call_user_func('template_bi_' . $board['type'] . '_info', $board) : template_bi_board_info($board), '
-			</div><!-- .info -->';
+			</td><!-- .info -->';
 
 			// Show some basic information about the number of posts, etc.
 			echo '
-			<div class="board_stats">
+			<td class="board_stats">
 				', function_exists('template_bi_' . $board['type'] . '_stats') ? call_user_func('template_bi_' . $board['type'] . '_stats', $board) : template_bi_board_stats($board), '
-			</div>';
+			</td>';
 
 			// Show the last post if there is one.
 			echo '
-			<div class="lastpost">
+			<td class="lastpost">
 				', function_exists('template_bi_' . $board['type'] . '_lastpost') ? call_user_func('template_bi_' . $board['type'] . '_lastpost', $board) : template_bi_board_lastpost($board), '
-			</div>';
+			</td>';
 
 			// Won't somebody think of the children!
 			if (function_exists('template_bi_' . $board['type'] . '_children'))
@@ -86,11 +55,11 @@ function template_main()
 				template_bi_board_children($board);
 
 				echo '
-		</div><!-- #board_[id] -->';
+		</tr><!-- #board_[id] --></tbody>';
 		}
 
 		echo '
-	</div><!-- #board_[current_board]_childboards -->';
+	</table><!-- #board_[current_board]_childboards -->';
 	}
 
 	// Let them know why their message became unapproved.
@@ -113,7 +82,6 @@ function template_main()
 	<div class="pagesection">
 		', $context['menu_separator'], '
 		<div class="pagelinks floatleft">
-			<a href="#bot" class="button">', $txt['go_down'], '</a>
 			', $context['page_index'], '
 		</div>
 		', template_button_strip($context['normal_buttons'], 'right');
@@ -137,28 +105,33 @@ function template_main()
 		<div id="messageindex">';
 
 		echo '
-			<div class="title_bar" id="topic_header">';
+		<table style="width:100%" cellspacing="1" class="bordercolor" id="topic_header">';
+
+		echo '
+			<thead class="title_bar" id="topic_header">';
 
 		// Are there actually any topics to show?
 		if (!empty($context['topics']))
 		{
 			echo '
-				<div class="board_icon"></div>
-				<div class="info">', $context['topics_headers']['subject'], ' / ', $context['topics_headers']['starter'], '</div>
-				<div class="board_stats centertext">', $context['topics_headers']['replies'], ' / ', $context['topics_headers']['views'], '</div>
-				<div class="lastpost">', $context['topics_headers']['last_post'], '</div>';
+				<th colspan="2" class="msgindex board_icon"></th>
+				<th class="msgindex info">', $context['topics_headers']['subject'], '</th>
+				<th class="msgindex starter centertext">', $context['topics_headers']['starter'], '</th>
+				<th class="msgindex board_stats centertext">', $context['topics_headers']['replies'], '</th>
+				<th class="msgindex board_stats centertext">', $context['topics_headers']['views'], '</th>
+				<th class="msgindex lastpost">', $context['topics_headers']['last_post'], '</th>';
 
 			// Show a "select all" box for quick moderation?
 			if (!empty($context['can_quick_mod']) && $options['display_quick_mod'] == 1)
 				echo '
-				<div class="moderation">
+				<th class="moderation">
 					<input type="checkbox" onclick="invertAll(this, this.form, \'topics[]\');">
-				</div>';
+				</th>';
 
 			// If it's on in "image" mode, don't show anything but the column.
 			elseif (!empty($context['can_quick_mod']))
 				echo '
-				<div class="moderation"></div>';
+				<th class="moderation"></th>';
 		}
 
 		// No topics... just say, "sorry bub".
@@ -167,49 +140,40 @@ function template_main()
 				<h3 class="titlebg">', $txt['topic_alert_none'], '</h3>';
 
 		echo '
-			</div><!-- #topic_header -->';
+			</thead><!-- #topic_header -->';
 
 		// Contain the topic list
 		echo '
-			<div id="topic_container">';
+			<tbody id="topic_container">';
 
-        $stickybar = false;
-		$normalbar = false;
 		foreach ($context['topics'] as $topic)
 		{
-			if ($topic['is_sticky'] && !$stickybar)
-			{
-				echo '
-				<div class="sub_bar">
-					<h3 class="subbg">
-						', $txt['sticky_topic'], '
-					</h3>
-				</div>';
-				$stickybar = true;
-			}
-			elseif (!$topic['is_sticky'] && $stickybar && !$normalbar)
-			{
-				echo '
-				<div class="sub_bar">
-					<h3 class="subbg">
-						', $txt['normal_topic'], '
-					</h3>
-				</div>';
-				$normalbar = true;
-			}
-			
+			/* i havent found a way to check attachment from here so the second icon is just xx.gif forever and icon returns xx.gif even with an attachment*/
 			echo '
-				<div class="', $topic['css_class'], '">
-					<div class="board_icon">
-						<img src="', $topic['first_post']['icon_url'], '" alt="">
-						', $topic['is_posted_in'] ? '<span class="main_icons profile_sm"></span>' : '', '
-					</div>
-					<div class="info', !empty($context['can_quick_mod']) ? '' : ' info_block', '">
-						<div ', (!empty($topic['quick_mod']['modify']) ? 'id="topic_' . $topic['first_post']['id'] . '"  ondblclick="oQuickModifyTopic.modify_topic(\'' . $topic['id'] . '\', \'' . $topic['first_post']['id'] . '\');"' : ''), '>';
+				<tr class="msgindexrow ', $topic['css_class'], '">
+					<td class="msgindexrow board_icon">
+						', template_t_icon1($topic), '
+					</td>
+					<td class="msgindexrow board_icon">
+						<img src="', $topic['icon_url'], '" alt=""> 
+					</td>
+			';
+			/* TODO FIGURE OUT WHERE THIS GOES
 
+					<td class="info', !empty($context['can_quick_mod']) ? '' : ' info_block', '">
+						<td ', (!empty($topic['quick_mod']['modify']) ? 'id="topic_' . $topic['first_post']['id'] . '"  ondblclick="oQuickModifyTopic.modify_topic(\'' . $topic['id'] . '\', \'' . $topic['first_post']['id'] . '\');"' : ''), '>
+			*/
+
+			echo '
+				<td class="message_index_title">
+				', $topic['new'] && $context['user']['is_logged'] ? '<a href="' . $topic['new_href'] . '" id="newicon' . $topic['first_post']['id'] . '" class="new_posts">' . $txt['new'] . '</a>' : '', '
+				<span class="preview', $topic['is_sticky'] ? ' bold_text' : '', '" title="', $topic[(empty($modSettings['message_index_preview_first']) ? 'last_post' : 'first_post')]['preview'], '">
+					<span id="msg_', $topic['first_post']['id'], '">', $topic['first_post']['link'], (!$topic['approved'] ? '&nbsp;<em>(' . $txt['awaiting_approval'] . ')</em>' : ''), '</span>
+				</span>
+			';
 			// Now we handle the icons
 			echo '
-							<div class="icons floatright">';
+							<span class="icons floatright">';
 
 			if ($topic['is_watched'])
 				echo '
@@ -232,27 +196,24 @@ function template_main()
 								<span class="main_icons poll"></span>';
 
 			echo '
-							</div>';
+							</span></td>';
 
 			echo '
-							<div class="message_index_title">
-								', $topic['new'] && $context['user']['is_logged'] ? '<a href="' . $topic['new_href'] . '" id="newicon' . $topic['first_post']['id'] . '" class="new_posts">' . $txt['new'] . '</a>' : '', '
-								<span class="preview', $topic['is_sticky'] ? ' bold_text' : '', '" title="', $topic[(empty($modSettings['message_index_preview_first']) ? 'last_post' : 'first_post')]['preview'], '">
-									<span id="msg_', $topic['first_post']['id'], '">', $topic['first_post']['link'], (!$topic['approved'] ? '&nbsp;<em>(' . $txt['awaiting_approval'] . ')</em>' : ''), '</span>
-								</span>
-							</div>
-							<p class="floatleft">
-								', $txt['started_by'], ' ', $topic['first_post']['member']['link'], '
+					<td class="msgindexrow starter"><p style="text-align:center;">
+								',$topic['first_post']['member']['link'], '
 							</p>
 							', !empty($topic['pages']) ? '<span id="pages' . $topic['first_post']['id'] . '" class="topic_pages">' . $topic['pages'] . '</span>' : '', '
-						</div><!-- #topic_[first_post][id] -->
-					</div><!-- .info -->
-					<div class="board_stats centertext">
-						<p>', $txt['replies'], ': ', $topic['replies'], '<br>', $txt['views'], ': ', $topic['views'], '</p>
-					</div>
-					<div class="lastpost">
+						</td><!-- #topic_[first_post][id] -->
+					</td><!-- .info -->
+					<td class="msgindexrow board_stats centertext">
+						<p>',$topic['replies'],'</p>
+					</td>
+					<td class="msgindexrow board_stats centertext">
+						<p>',$topic['views'],'</p>
+					</td>
+					<td class="msgindexrow lastpost">
 						<p>', sprintf($txt['last_post_topic'], '<a href="' . $topic['last_post']['href'] . '">' . $topic['last_post']['time'] . '</a>', $topic['last_post']['member']['link']), '</p>
-					</div>';
+					</td>';
 
 			// Show the quick moderation options?
 			if (!empty($context['can_quick_mod']))
@@ -285,10 +246,10 @@ function template_main()
 					</div><!-- .moderation -->';
 			}
 			echo '
-				</div><!-- $topic[css_class] -->';
+				</tr><!-- $topic[css_class] -->';
 		}
 		echo '
-			</div><!-- #topic_container -->';
+			</tbody><!-- #topic_container --></table>';
 
 		if (!empty($context['can_quick_mod']) && $options['display_quick_mod'] == 1 && !empty($context['topics']))
 		{
@@ -329,7 +290,6 @@ function template_main()
 		', template_button_strip($context['normal_buttons'], 'right'), '
 		', $context['menu_separator'], '
 		<div class="pagelinks floatleft">
-			<a href="#main_content_section" class="button" id="bot">', $txt['go_up'], '</a>
 			', $context['page_index'], '
 		</div>';
 
@@ -392,16 +352,53 @@ function template_main()
 }
 
 /**
- * Outputs the board icon for a standard board.
+ * Outputs the board icon for a standard or redirect board.
  *
  * @param array $board Current board information.
  */
 function template_bi_board_icon($board)
 {
-	global $context, $scripturl;
+	global $context, $scripturl, $txt, $settings;
+	echo '
+	<a href="', ($board['is_redirect'] || $context['user']['is_guest'] ? $board['href'] : $scripturl . '?action=unread;board=' . $board['id'] . '.0;children'), '">';
+
+	// If the board or children is new, show an indicator.
+	if ($board['new'] || $board['children_new'])
+		echo '
+			<img src="', $settings['images_url'], '/on', $board['new'] ? '' : '2', '.gif" alt="', $txt['new_posts'], '" title="', $txt['new_posts'], '" border="0" />';
+	// Is it a redirection board?
+	elseif ($board['is_redirect'])
+		echo '
+			<img src="', $settings['images_url'], '/redirect.gif" alt="*" title="*" border="0" />';
+	// No new posts at all! The agony!!
+	else
+		echo '
+			<img src="', $settings['images_url'], '/off.gif" alt="', $txt['old_posts'], '" title="', $txt['old_posts'], '" />';
 
 	echo '
-		<a href="', ($context['user']['is_guest'] ? $board['href'] : $scripturl . '?action=unread;board=' . $board['id'] . '.0;children'), '" class="board_', $board['board_class'], '"', !empty($board['board_tooltip']) ? ' title="' . $board['board_tooltip'] . '"' : '', '></a>';
+		</a>';
+}
+
+/**
+ * Outputs the first icon for a message.
+ *
+ * @param array $topic Current topic information.
+ */
+function template_t_icon1($topic)
+{
+	global $context, $scripturl, $settings;
+
+	echo '<img src="', $settings['images_url'],'/topic/';
+	if ($topic['is_sticky'])
+		if($topic['is_locked'])
+			echo 'normal_post_locked_sticky.png';
+		else
+			echo 'normal_post_sticky.png';
+	else if ($topic['is_locked']) /* Only locked, above if statement handles it */
+		echo 'normal_post_locked.png';
+	else
+		echo 'normal_post.png';
+	echo '"/>';
 }
 
 /**
@@ -426,10 +423,10 @@ function template_bi_board_info($board)
 {
 	global $context, $scripturl, $txt;
 
-	echo '
+	echo '<h4>
 		<a class="subject mobile_subject" href="', $board['href'], '" id="b', $board['id'], '">
 			', $board['name'], '
-		</a>';
+		</a></h4>';
 
 	// Has it outstanding posts for approval?
 	if ($board['can_approve_posts'] && ($board['unapproved_posts'] || $board['unapproved_topics']))
