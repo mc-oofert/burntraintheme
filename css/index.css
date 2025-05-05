@@ -926,7 +926,7 @@
   }
   .profile_user_info, .profile_user_avatar {
 	  display: inline-block;
-	  margin: 0 9px;
+	  margin: 9px 9px 0px 9px;
 	  vertical-align: middle;
   }
   .profile_user_avatar img.avatar {
