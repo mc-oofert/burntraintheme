@@ -629,7 +629,6 @@
 	  transition: 0.25s;
   }
   a.nav_page {
-	  background: var(--pagination_nonactive_link_bg);
 	  border-radius: 50%;
 	  text-align: center;
 	  padding: 2px 6px;	
@@ -640,7 +639,6 @@
 	  transition: 0.25s;
   }
   a.nav_page:hover {
-	  background: var(--pagination_bg);
 	  border-radius: 50%;
 	  text-align: center;
 	  text-decoration: none;
