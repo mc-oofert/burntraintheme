@@ -164,6 +164,7 @@ function template_main()
 				<span class="preview', $topic['is_sticky'] ? ' bold_text' : '', '" title="', $topic[(empty($modSettings['message_index_preview_first']) ? 'last_post' : 'first_post')]['preview'], '">
 					<span id="msg_', $topic['first_post']['id'], '">', $topic['first_post']['link'], (!$topic['approved'] ? '&nbsp;<em>(' . $txt['awaiting_approval'] . ')</em>' : ''), '</span>
 				</span>
+				', !empty($topic['pages']) ? '<span id="pages' . $topic['first_post']['id'] . '" class="topic_pages">' . $topic['pages'] . '</span>' : '', '
 			';
 			// Now we handle the icons
 			echo '
@@ -196,7 +197,6 @@ function template_main()
 					<td class="msgindexrow starter"><p style="text-align:center;">
 								',$topic['first_post']['member']['link'], '
 							</p>
-							', !empty($topic['pages']) ? '<span id="pages' . $topic['first_post']['id'] . '" class="topic_pages">' . $topic['pages'] . '</span>' : '', '
 						</td><!-- #topic_[first_post][id] -->
 					</td><!-- .info -->
 					<td class="msgindexrow board_stats centertext">
